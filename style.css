@@ -1,0 +1,403 @@
+/* ラベルを両端に配置 */
+/* 同意する同意しない */
+.label-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding: 0 10px;
+}
+
+#app-container{
+    max-width: 1500px; 
+    margin: 10px auto; 
+    padding: 30px;
+}
+
+/* 質問文の幅 */
+#question-container{
+    max-width: 700px;    
+    margin: 40px auto; 
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); 
+}
+
+/* 質問文のテキスト */
+.question-text {
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+
+
+/* ７つのボタン------------------ */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px; /* ボタン同士の間隔 */
+}
+
+.btn {
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+/* サイズ設定 */
+.size-xl { width: 45px; height: 45px; }
+.size-l  { width: 35px; height: 35px; }
+.size-m  { width: 25px; height: 25px; }
+.size-s  { width: 20px; height: 20px; }
+
+/* 色設定（枠線の色） */
+.color-green  { border-color: #00BCD4; }
+.color-gray   { border-color: #999; }
+.color-purple { border-color: #FFC107; }
+
+/* クリック時の塗りつぶし */
+.color-green:hover  { background-color: #00BCD4; }
+.color-purple:hover { background-color: #FFC107; }
+.color-gray:hover   { background-color: #999; }
+
+/* active時の塗りつぶし */
+.btn.active.color-green {
+    background-color: #00BCD4;
+}
+.btn.active.color-purple {
+    background-color: #FFC107;
+}
+.btn.active.color-gray {
+    background-color: #999;
+}
+/* ７つのボタン設定終わり------------------ */
+
+
+
+.question-block {
+    margin-bottom: 40px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+}
+
+
+
+/* 次へ戻るボタン------------------ */
+.nextback-btn {
+    display: inline-block;
+    min-width: 120px; 
+    margin: 20px 10px; 
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: center;
+    background-color: #4FC3F7; 
+    color: #fff;
+    box-shadow: 0 4px 0 #0091ea;
+}
+
+/* ボタンにカーソルを置いた時の動き */
+.nextback-btn:hover {
+    background-color: #81d4fa;
+    transform: translateY(-2px);
+}
+
+/* ボタンを押した時の動き */
+.nextback-btn:active {
+    transform: translateY(2px);
+    box-shadow: none;
+}
+/* 次へ戻るボタンの設定終了------------------ */
+
+
+/* メニュー本体 */
+.nav {
+    position: fixed; 
+    top: 0; 
+    right: -100%; /* 最初は画面の外 */
+    width: 200px; 
+    height: 100vh; 
+    background: #fff;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1); 
+    transition: 0.3s; z-index: 90;
+}
+.nav.is-active { right: 0; }
+
+
+
+/* 16タイプのタイル表示---------------------- */
+.type-grid {
+    display: grid;
+    /* 画面の幅に合わせて3〜4列に自動調整 */
+    grid-template-columns: repeat(4, minmax(150px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+@media(max-width: 768px){
+    .type-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.type-card {
+    min-height: 120px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px; 
+    background: #f0f0f0; 
+    border-radius: 8px;
+    cursor: pointer; 
+    text-align: center; 
+    font-weight: bold;
+}
+.type-card:hover {
+    background: #E0F7FA; 
+    border-color: #00BCD4;
+    transform: translateY(-5px);
+}
+
+/* タイプ名（LCOEなど） */
+.type-id {
+    font-size: 1.7rem;
+    color: #00BCD4;
+    margin-bottom: 5px;
+    letter-spacing: 2px;
+}
+
+/* キャッチコピー（一言） */
+.type-nickname {
+    font-size: 1rem;
+    color: #555;
+    font-weight: bold;
+    line-height: 1.4;
+    padding: 0 10px;
+}
+/* 16タイプのタイル表示の設定終了---------------------- */
+
+
+
+/* 16タイプ詳細------------------------------------ */
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+}
+
+.result-card {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    padding: 40px;
+    text-align: center;
+}
+
+/* タイプ名とキャッチコピー */
+#type-id {
+    font-size: 1.2rem;
+    color: #00BCD4;
+    letter-spacing: 0.3em;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#type-name {
+    font-size: 2.2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.catchphrase {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+/* 画像エリア */
+.image-box {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 30px;
+    background: #f0f0f0;
+    border-radius: 50%; /* 円形にする */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#type-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 長所・短所のグリッドレイアウト */
+.flex-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 横並び */
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+/* スマホでは縦並びにする */
+@media (max-width: 600px) {
+    .flex-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.info-box {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: left;
+}
+
+/* 長所（青/緑系） */
+.info-box h3 {
+    margin-top: 0;
+    font-size: 1rem;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+#type-strengths li { color: #006875; margin-bottom: 5px; }
+#type-weaknesses li { color: #705504; margin-bottom: 5px; }
+
+/* 仕事のスタイル */
+.style-box {
+    background: #E0F7FA; /* ほんのり黄色で強調 */
+    border-left: 5px solid #00BCD4;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+    line-height: 1.6;
+}
+/* 16タイプ詳細の設定終了------------------------------------ */
+
+
+
+
+
+/* 固定ヘッダー (Common Header)-------------------- */
+.site-header {
+    width: 100%;
+    height: 100px; /* ヘッダーの高さ */
+    background-color: #E0F7FA;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed; /* 画面上部に固定 */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* 一番手前に表示 */
+}
+
+.header-inner {
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-title a {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #00BCD4; 
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+
+.header-margin {
+    height: 100px; 
+}
+/* 固定ヘッダー (Common Header)終了----------- */
+
+
+/* ハンバーガーメニュー */
+
+.hamburger {
+    width: 30px;
+    height: 24px;
+    position: relative;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+/* 三本線のデザイン */
+.hamburger span {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #333;
+    transition: 0.3s;
+}
+
+.hamburger span:nth-child(1) { top: 0; }
+.hamburger span:nth-child(2) { top: 11px; }
+.hamburger span:nth-child(3) { top: 22px; }
+
+/* メニューが開いた時の三本線の動き（必要に応じて） */
+.hamburger.is-active span:nth-child(1) { transform: translateY(11px) rotate(45deg); }
+.hamburger.is-active span:nth-child(2) { opacity: 0; }
+.hamburger.is-active span:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
+
+/* ナビゲーションメニューのスタイル（調整） */
+.nav {
+    position: fixed;
+    top: 0;
+    right: -100%; /* 最初は隠しておく */
+    width: 300px;
+    max-width: 80vh;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    transition: 0.4s ease-in-out;
+    padding-top: 80px;
+    z-index: 1050;
+}
+
+.nav.is-active {
+    right: 0; /* 右からスライドして表示 */
+}
+
+/* ハンバーガーメニュー内のリストの見た目 */
+.nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav ul li {
+    border-bottom: 1px solid #eee;
+}
+
+.nav ul li a {
+    display: block;
+    padding: 20px 30px;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.nav ul li a:hover {
+    background-color: #f9f9f9;
+    color: #00BCD4;
+}

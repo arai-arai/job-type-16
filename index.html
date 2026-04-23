@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>♡ジョブタイプ診断♡</title>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <h1 class="header-title">
+                <a href="index.html">Job Type 16</a>
+            </h1>
+
+            <div class="hamburger" id="js-hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <nav class="nav" id="js-nav">
+            <ul>
+                <li><a href="index.html">診断をはじめる</a></li>
+                <li><a href="list.html">16タイプ解説</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="header-margin"></div>
+
+    <main id="app-container">
+        <h1 style="color: #004e5a;">ジョブタイプ診断</h1>
+        
+        <div id="question-container">
+            <div id="progress"></div>
+            
+            <div id="questions-page"></div>
+
+            <div class="button-container">
+                <button id="prev-btn" class="nextback-btn prev-btn-style">前のページへ</button>
+                <button id="next-btn" class="nextback-btn next-btn-style">次のページへ</button>
+            </div>
+        </div>
+        <div id="result-area" style="display: none;">
+            <h2 id="result-text"></h2>
+        </div>
+
+        
+
+        
+    </main>
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/common.js"></script>
+</body>
+</html>
