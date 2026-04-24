@@ -144,11 +144,7 @@
     padding: 20px;
 }
 
-@media(max-width: 768px){
-    .type-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
+
 
 .type-card {
     min-height: 120px; 
@@ -253,12 +249,7 @@
     margin-bottom: 30px;
 }
 
-/* スマホでは縦並びにする */
-@media (max-width: 600px) {
-    .flex-container {
-        grid-template-columns: 1fr;
-    }
-}
+
 
 .info-box {
     background: #f8f9fa;
@@ -400,4 +391,89 @@
 .nav ul li a:hover {
     background-color: #f9f9f9;
     color: #00BCD4;
+}
+
+
+@media(max-width: 768px){
+    #app-container{
+        padding: 2px;
+    }
+
+    .label-container {
+        margin-bottom: 5px;
+        font-size: 0.8rem;
+    }
+
+    #question-container{
+        max-width: 95%;
+        margin: 10px auto;
+        padding: 15px;
+    }
+
+    .question-text {
+        font-size: 1.05rem;
+        margin-bottom: 15px;
+    }
+
+    .button-group {
+        gap: 8px; /* ボタン同士の間隔 */
+        justify-content: space-around;
+    }
+
+    .btn {
+        transform: scale(0.85);
+        margin-bottom: -5px;
+    }
+
+    .type-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    .container {
+        margin: 20px auto;
+        padding: 1px;
+    }
+
+    .result-card {
+        padding: 25px 15px; 
+        border-radius: 10px;
+    }
+
+
+    #type-id {
+        font-size: 1rem;
+        letter-spacing: 0.2em;
+    }
+
+    #type-name {
+        font-size: 1.8rem;
+    }
+
+    .catchphrase {
+        font-size: 0.8rem;
+        margin-bottom: 10px;
+    }
+
+    .image-box {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 20px;
+    }
+
+
+    .flex-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .info-box {
+        padding: 15px;
+        margin: 0px;
+    }
+
+    .style-box {
+        padding: 15px;
+        font-size: 0.95;
+    }
 }
