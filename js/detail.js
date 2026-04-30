@@ -22,6 +22,8 @@ if (data) {
     document.getElementById('type-catchphrase').textContent = data.catchphrase;
     //document.getElementById('type-image').src = data.image;
     document.getElementById('type-workstyle').textContent = data.workStyle;
+    
+
 
     //長所
     const strengthList = document.getElementById('type-strengths');
@@ -37,5 +39,12 @@ if (data) {
         const li = document.createElement('li');
         li.textContent = w;
         weaknessList.appendChild(li);
+    });
+
+    const suitablejobList = document.getElementById('type-suitablejob');
+    data.suitableJob.forEach(j => {
+        const li = document.createElement('li');
+        li.textContent = j;
+        suitablejobList.appendChild(li);
     });
 }

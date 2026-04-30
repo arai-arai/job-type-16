@@ -15,10 +15,12 @@ let userAnswers = new Array(questions.length).fill(null);
 
 // HTML要素の取得
 const questionPage  = document.getElementById('questions-page');
-const progress  = document.getElementById('progress');
+const progress  = document.getElementById('progress-bar');
+const progressTxt  = document.getElementById('progress-txt');
 const prevBtn       = document.getElementById('prev-btn');
 const nextBtn       = document.getElementById('next-btn');
 const resultArea    = document.getElementById('result-area');
+
 
 //ページ（10問セット）を表示する関数
 function showPage() {
@@ -27,9 +29,18 @@ function showPage() {
     const start = currentStep * questionsPerPage;
     const end   = Math.min(start + questionsPerPage, questions.length);
     const pageQuestions = questions.slice(start, end);
+    const questionOrder = [24, 44, 6, 47, 30, 50, 36, 41, 52, 7, 
+        17, 48, 35, 40, 54, 55, 31, 21, 11, 43, 
+        51, 8, 28, 14, 29, 22, 23, 5, 42, 38, 
+        53, 37, 18, 39, 1, 26, 25, 33, 10, 12, 
+        13, 15, 9, 45, 27, 34, 49, 19, 4, 56, 
+        16, 46, 3, 2, 20, 32, ];
 
     // 進捗表示の更新
-    progress.textContent = `進捗: ${start} / ${questions.length}`;
+    progressTxt.textContent = `進捗: ${start} / ${questions.length}`;
+    progress.value = start;
+    progress.max = questions.length;
+
 
     // 質問とボタンの生成
     pageQuestions.forEach((q, index) => {
