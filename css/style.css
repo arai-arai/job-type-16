@@ -15,6 +15,37 @@
 }
 
 /*トップページ*/
+.header-margin.top{
+    height: 30px;
+}
+
+.top-section{
+    background: linear-gradient(135deg, #00BCD4 0%, #0097A7 100%);
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+    border-radius: 0 0 50px 50px; /* 下側だけ丸めて柔らかい印象に */
+    margin-bottom: 50px;
+}
+
+.top-title {
+    font-size: 2.8rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.btn-arrow {
+    margin-left: 10px;
+}
+
+.top-subtitle {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
 .guide-section {
     max-width: 800px;
     margin: 40px auto;
@@ -38,15 +69,16 @@
 
 .style-cell {
     flex: 1;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
+    height: 100px;
 }
 
 .style-cell.left { background-color: #f0faff; } 
 .style-cell.right { background-color: #fffaf0; } 
 
 .style-arrow {
-    padding: 0 10px;
+    padding: 10px;
     font-weight: bold;
     color: #ccc;
     font-size: 1rem;
@@ -530,18 +562,26 @@ progress::-moz-progress-bar {
 
 @media(max-width: 768px){
     .app-container{
-        padding: 2px;
+        padding: 0px;
     }
 
-    .style-row {
-        flex-direction: column; /* スマホでは縦に並べる */
-    }
-    .style-vs {
-        padding: 5px 0;
-        background: #eee;
-        width: 100%;
+    .top-section {
+        padding: 60px 20px;
     }
 
+    .top-title {
+        font-size: 2rem;
+    }
+
+    .top-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .style-cell {
+        width: 100%; 
+        padding: 15px 10px 30px; 
+    }
+    
     .label-container {
         margin-bottom: 5px;
         font-size: 0.8rem;
