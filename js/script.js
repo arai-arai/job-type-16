@@ -1,4 +1,6 @@
 // 基本設定とデータ管理
+const urlParams = new URLSearchParams(window.location.search)
+const mode = urlParams.get('mode');
 const questionsPerPage = 10;
 let currentStep = 0;
 
@@ -21,24 +23,28 @@ const prevBtn       = document.getElementById('prev-btn');
 const nextBtn       = document.getElementById('next-btn');
 const resultArea    = document.getElementById('result-area');
 
+const questionOrder = (mode === 'simple')
+        ?[45, 3, 19, 55, 32, 10, 25, 39, 51, 12, 47, 29, 2, 22, 16, 37]
+        :[24, 44, 6, 47, 30, 50, 36, 41, 52, 7, 
+            17, 48, 35, 40, 54, 55, 31, 21, 11, 43, 
+            51, 8, 28, 14, 29, 22, 23, 5, 42, 38, 
+            53, 37, 18, 39, 1, 26, 25, 33, 10, 12, 
+            13, 15, 9, 45, 27, 34, 49, 19, 4, 56, 
+            16, 46, 3, 2, 20, 32, ];
+    
+
+    
+//並べ替え
+const sortedQuestions = questionOrder.map(id => {
+    return questions.find(q => q.id === id);
+});
+
 
 //ページ（10問セット）を表示する関数
 function showPage() {
     //画面の書き換え
     questionPage.innerHTML = '';
-    //質問の順番
-    const questionOrder = [24, 44, 6, 47, 30, 50, 36, 41, 52, 7, 
-        17, 48, 35, 40, 54, 55, 31, 21, 11, 43, 
-        51, 8, 28, 14, 29, 22, 23, 5, 42, 38, 
-        53, 37, 18, 39, 1, 26, 25, 33, 10, 12, 
-        13, 15, 9, 45, 27, 34, 49, 19, 4, 56, 
-        16, 46, 3, 2, 20, 32, ];
-
-    //並べ替え
-    const sortedQuestions = questionOrder.map(id => {
-        return questions.find(q => q.id === id);
-    });
-
+    
     const start = currentStep * questionsPerPage;
     const end   = Math.min(start + questionsPerPage, sortedQuestions.length);
     const pageQuestions = sortedQuestions.slice(start, end);
@@ -93,7 +99,7 @@ function showPage() {
     // 次へボタンの制御
     nextBtn.style.display = 'inline-block';
     
-    if (end >= questions.length) {
+    if (end >= sortedQuestions.length) {
         nextBtn.textContent = '結果を見る';
     } else {
         nextBtn.textContent = '次のページへ';
@@ -161,7 +167,7 @@ nextBtn.addEventListener('click', () => {
 
     // 全回答済みの場合
     const start = currentStep * questionsPerPage;
-    if (start + questionsPerPage < questions.length) {
+    if (start + questionsPerPage < sortedQuestions.length) {
         currentStep++;
         showPage();
         window.scrollTo(0, 0);
@@ -187,7 +193,7 @@ function goToDetailPage() {
     totalScores = { L: 0, F: 0, C: 0, S: 0, O: 0, H: 0, E: 0, I: 0 };
     userAnswers.forEach((score, index) => {
         if (score === null) return;
-        const q = questions[index];
+        const q = sortedQuestions[index];
         if (score > 0) totalScores[q.leftLabel] += Math.abs(score);
         else if (score < 0) totalScores[q.rightLabel] += Math.abs(score);
     });

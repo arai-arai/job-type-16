@@ -1,0 +1,109 @@
+
+.header-margin.top{
+    height: 30px;
+}
+
+.top-section{
+    background: linear-gradient(135deg, #00BCD4 0%, #0097A7 100%);
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+    border-radius: 0 0 50px 50px; /* 下側だけ丸めて柔らかい印象に */
+    margin-bottom: 50px;
+}
+
+.top-title {
+    font-size: 2.8rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.btn-arrow {
+    margin-left: 10px;
+}
+
+.top-subtitle {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+.guide-section {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.table {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.style-row {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    overflow: hidden;
+}
+
+.style-cell {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    height: 100px;
+}
+
+.style-cell.left { background-color: #f0faff; } 
+.style-cell.right { background-color: #fffaf0; } 
+
+.style-arrow {
+    padding: 10px;
+    font-weight: bold;
+    color: #ccc;
+    font-size: 1rem;
+}
+
+.code {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #00BCD4;
+    margin-bottom: 5px;
+}
+
+.label {
+    display: block;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+.style-cell p {
+    font-size: 0.85rem;
+    color: #666;
+    margin: 0;
+}
+
+@media(max-width: 768px){
+    .top-section {
+        padding: 60px 20px;
+    }
+
+    .top-title {
+        font-size: 2rem;
+    }
+
+    .top-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .style-cell {
+        width: 100%; 
+        padding: 15px 10px 30px; 
+    }
+}

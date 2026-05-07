@@ -1,0 +1,56 @@
+
+.type-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(150px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+
+
+.type-card {
+    min-height: 120px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px; 
+    background: #f0f0f0; 
+    border-radius: 8px;
+    cursor: pointer; 
+    text-align: center; 
+    font-weight: bold;
+}
+.type-card:hover {
+    background: #E0F7FA; 
+    border-color: #00BCD4;
+    transform: translateY(-5px);
+}
+
+/* タイプ名（LCOEなど） */
+.type-id {
+    font-size: 1.7rem;
+    color: #00BCD4;
+    margin-bottom: 5px;
+    letter-spacing: 2px;
+}
+
+/* キャッチコピー（一言） */
+.type-nickname {
+    font-size: 1rem;
+    color: #555;
+    font-weight: bold;
+    line-height: 1.4;
+    padding: 0 10px;
+}
+
+@media(max-width: 768px){
+    .type-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    .container {
+        margin: 20px auto;
+        padding: 1px;
+    }
+}

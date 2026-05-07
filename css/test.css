@@ -1,0 +1,146 @@
+/* ラベルを両端に配置 */
+/* 同意する同意しない */
+.label-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding: 0 10px;
+}
+
+
+
+
+.progress-container {
+    width: 100%;
+    margin: 20px auto 30px;
+    text-align: right;
+}
+
+#progress-bar{
+    width: 100%;
+    height: 12px;
+    appearance: none;
+    border: none;
+    
+}
+
+progress::-webkit-progress-bar {
+    background-color: #eee;
+    border-radius: 10px;
+    box-shadow: inset 0 1px 3px #0000001a; 
+}
+
+progress::-webkit-progress-value {
+    background: linear-gradient(90deg, #4FC3F7, #0192d4);
+    box-shadow: inset 0 1px 3px #27627e; 
+    border-radius: 10px;
+    transition: width 0.4s ease;
+}
+
+progress::-moz-progress-bar {
+    background: #00BCD4;
+    border-radius: 10px;
+}
+
+#progress-txt {
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: #666;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* 質問文の幅 */
+#question-container{
+    max-width: 700px;    
+    margin: 40px auto; 
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); 
+}
+
+/* 質問文のテキスト */
+.question-text {
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+
+
+/* ７つのボタン------------------ */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px; /* ボタン同士の間隔 */
+}
+
+.btn {
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+/* サイズ設定 */
+.size-xl { width: 45px; height: 45px; }
+.size-l  { width: 35px; height: 35px; }
+.size-m  { width: 25px; height: 25px; }
+.size-s  { width: 20px; height: 20px; }
+
+/* 色設定（枠線の色） */
+.color-green  { border-color: #00BCD4; }
+.color-gray   { border-color: #999; }
+.color-purple { border-color: #FFC107; }
+
+/* クリック時の塗りつぶし */
+.color-green:hover  { background-color: #00BCD4; }
+.color-purple:hover { background-color: #FFC107; }
+.color-gray:hover   { background-color: #999; }
+
+/* active時の塗りつぶし */
+.btn.active.color-green {
+    background-color: #00BCD4;
+}
+.btn.active.color-purple {
+    background-color: #FFC107;
+}
+.btn.active.color-gray {
+    background-color: #999;
+}
+/* ７つのボタン設定終わり------------------ */
+
+
+
+.question-block {
+    margin-bottom: 40px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+}
+
+@media(max-width: 768px){
+    #question-container{
+        max-width: 95%;
+        margin: 10px auto;
+        padding: 15px;
+    }
+
+    .question-text {
+        font-size: 1.05rem;
+        margin-bottom: 15px;
+    }
+
+    .button-group {
+        gap: 8px; /* ボタン同士の間隔 */
+        justify-content: space-around;
+    }
+
+    .btn {
+        transform: scale(0.85);
+        margin-bottom: -5px;
+    }
+}
