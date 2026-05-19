@@ -61,6 +61,7 @@
 
 /* 固定ヘッダー -------------------- */
 .site-header {
+    
     width: 100%;
     height: 100px; /* ヘッダーの高さ */
     background-color: #E0F7FA;
