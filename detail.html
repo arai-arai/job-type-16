@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/detail.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <title>16タイプ詳細</title>
 </head>
@@ -40,6 +41,43 @@
                 <!--<img id="type-image" src="" alt="">-->
             </div>
 
+
+
+            <!-- グラフ -->
+            <div id="graph-container" style="display: none; max-width: 600px; margin: 40px auto; padding: 20px; background: #fff; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                <h3 style="text-align: center; margin-bottom: 25px; color: #333;">診断結果</h3>
+
+                <!-- L vs F -->
+                <div class="chart-row">
+                    <span class="label-left" id="label-L">先導 (L)</span>
+                    <div class="canvas-wrapper"><canvas id="chartLF"></canvas></div>
+                    <span class="label-right" id="label-F">支援 (F)</span>
+                </div>
+
+                <!-- C vs S -->
+                <div class="chart-row">
+                    <span class="label-left" id="label-C">継続 (C)</span>
+                    <div class="canvas-wrapper"><canvas id="chartCS"></canvas></div>
+                    <span class="label-right" id="label-S">瞬発 (S)</span>
+                </div>
+
+                <!-- O vs H -->
+                <div class="chart-row">
+                    <span class="label-left" id="label-O">成果 (O)</span>
+                    <div class="canvas-wrapper"><canvas id="chartOH"></canvas></div>
+                    <span class="label-right" id="label-H">調和 (H)</span>
+                </div>
+
+                <!-- E vs I -->
+                <div class="chart-row">
+                    <span class="label-left" id="label-E">外的 (E)</span>
+                    <div class="canvas-wrapper"><canvas id="chartEI"></canvas></div>
+                    <span class="label-right" id="label-I">内的 (I)</span>
+                </div>
+            </div>
+
+
+
             <div class="sw-container">
                 <div class="info-box strength">
                     <h3>長所・強み</h3>
@@ -63,6 +101,28 @@
             </div>
             
 
+            
+            <div id="share-container" style="max-width: 650px; margin: 30px auto; text-align: center; padding: 20px;">
+                <h4 style="margin-bottom: 15px; color: #555; font-size: 14px;">結果を友達にシェアする</h4>
+                
+                <div class="share-buttons" style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+                    <!-- X (Twitter) ボタン -->
+                    <button id="btn-share-x" class="share-btn" style="background-color: #000; color: #fff;">
+                        Xでポストする
+                    </button>
+                    
+                    <!-- LINE ボタン -->
+                    <button id="btn-share-line" class="share-btn" style="background-color: #06C755; color: #fff;">
+                        LINEで送る
+                    </button>
+
+                    <!-- リンクコピー ボタン -->
+                    <button id="btn-copy-link" class="share-btn" style="background-color: #6c757d; color: #fff;">
+                        結果のURLをコピー
+                    </button>
+                </div>
+            </div>
+
             <a href="list.html" class="nextback-btn">一覧に戻る</a>
         </div>
     </main>
@@ -70,5 +130,6 @@
     <script src="./js/data.js"></script>
     <script src="./js/detail.js"></script>
     <script src="./js/common.js"></script>
+    
 </body>
 </html>

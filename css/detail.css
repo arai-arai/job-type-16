@@ -107,6 +107,59 @@
     margin-left: 20px;
 }
 
+/* グラフ */
+
+.chart-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.label-left {
+    width: 120px;
+    text-align: right;
+    font-weight: bold;
+    padding-right: 15px;
+    font-size: 15px;
+}
+
+.label-right {
+    width: 120px;
+    text-align: left;
+    font-weight: bold;
+    padding-left: 15px;
+    font-size: 15px;
+}
+
+.canvas-wrapper {
+    flex: 1;
+    min-width: 0;
+    height: 30px;
+    position: relative;
+}
+
+
+
+.share-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px; /* 丸みのある可愛いボタンに */
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.08);
+}
+
+.share-btn:hover {
+    opacity: 0.8;
+    transform: translateY(-2px); /* ホバー時に少し浮き上がらせる演出 */
+}
+
+.share-btn:active {
+    transform: translateY(0);
+}
+
 
 @media(max-width: 768px){
     .result-container{
@@ -150,5 +203,43 @@
         padding: 0px;
     }
 
+    #graph-container h3{
+        margin: 0px;
+    }
+
+    .chart-row {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        margin-bottom: 15px;
+        position: relative;
+    }
+
+    .label-left, .label-right {
+        width: auto;
+        font-size: 12px;
+        padding: 0;
+        display: inline-block;
+        margin-bottom: 6px;
+    }
     
+    .label-left {
+        order: 1;
+        text-align: left;
+    }
+    
+    .label-right {
+        order: 1;
+        text-align: right;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    .canvas-wrapper {
+        order: 2;
+        height: 24px;
+        width: 100%;
+        margin-top: 2px;
+    }
 }

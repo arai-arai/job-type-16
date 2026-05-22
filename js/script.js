@@ -162,7 +162,7 @@ nextBtn.addEventListener('click', () => {
             behavior: "smooth" 
         });
 
-        return; // 次のページへ進ませない
+        return;
     }
 
     // 全回答済みの場合
@@ -210,7 +210,8 @@ function goToDetailPage() {
     localStorage.setItem('testScores', JSON.stringify(totalScores));
 
     //  detail.html にパラメータを付けて移動する
-    window.location.href = `detail.html?type=${type}`;
+    window.location.href = 
+    `detail.html?type=${type}&from=test&L=${totalScores.L}&F=${totalScores.F}&C=${totalScores.C}&S=${totalScores.S}&O=${totalScores.O}&H=${totalScores.H}&E=${totalScores.E}&I=${totalScores.I}`;
     
 }//goToDetailPage
 
