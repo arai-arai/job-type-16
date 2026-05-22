@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // シェア時に載せるテキストとURLの準備
     let shareText = "#JobType16 #ジョブタイプ診断 \nみんなはどのジョブタイプ？";
-    if (data) {
+    if (typeof data !== 'undefined' && data) {
         shareText = `私のジョブタイプは【${typeId}: ${data.name}】！\n「${data.catchphrase}」\nみんなはどのジョブタイプ？`;
     }
     
@@ -189,7 +189,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 1. X (Twitter) シェア設定
     if (shareXBtn) {
-        shareXBtn.addEventListener('click', () => {
+        shareXBtn.addEventListener('click', (e) => {
+            e.preventDefault();
             const xUrl = `https://twitter.com/share?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareText)}`;
             window.open(xUrl, '_blank', 'noreferrer,noopener');
         });
@@ -197,7 +198,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 2. LINE シェア設定
     if (shareLineBtn) {
-        shareLineBtn.addEventListener('click', () => {
+        shareLineBtn.addEventListener('click', (e) => {
+            e.preventDefault();
             const lineUrl = `https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(shareUrl + '\n' + shareText)}`;
             window.open(lineUrl, '_blank', 'noreferrer,noopener');
         });
@@ -205,22 +207,58 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 3. リンクコピー機能
     if (copyLinkBtn) {
-        copyLinkBtn.addEventListener('click', () => {
-            navigator.clipboard.writeText(shareUrl).then(() => {
-                // コピー成功時の演出
-                const originalText = copyLinkBtn.textContent;
-                copyLinkBtn.textContent = "URLをコピーしました！";
-                copyLinkBtn.style.backgroundColor = "#28a745"; // 一時的に緑色にするなど
-                
-                // 2秒後に元の状態に戻す
-                setTimeout(() => {
-                    copyLinkBtn.textContent = originalText;
-                    copyLinkBtn.style.backgroundColor = "#6c757d";
-                }, 2000);
-            }).catch(err => {
-                console.error('URLのコピーに失敗しました: ', err);
-                alert('URLのコピーに失敗しました。ブラウザのURL欄から直接コピーしてください。');
-            });
+        copyLinkBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            // クリップボードAPIが使える場合（通常のモダンブラウザ）
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(shareUrl)
+                    .then(() => showCopySuccess(copyLinkBtn))
+                    .catch(err => {
+                        console.error('Clipboard API fail, trying fallback...', err);
+                        fallbackCopyText(shareUrl, copyLinkBtn);
+                    });
+            } else {
+                // クリップボードAPIが使えない環境（LINE内ブラウザやhttp環境など）
+                fallbackCopyText(shareUrl, copyLinkBtn);
+            }
         });
     }
 });
+
+// コピー成功時のボタンUI変更演出
+function showCopySuccess(btn) {
+    const originalText = btn.textContent;
+    btn.textContent = "URLをコピーしました！";
+    const originalBg = btn.style.backgroundColor;
+    btn.style.backgroundColor = "#28a745"; // 一時的に緑色に
+    
+    setTimeout(() => {
+        btn.textContent = originalText;
+        btn.style.backgroundColor = originalBg;
+    }, 2000);
+}
+
+// クリップボードAPIが動かないスマホ用の予備コピー処理
+function fallbackCopyText(text, btn) {
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    // 画面外に隠す
+    textArea.style.position = "fixed";
+    textArea.style.top = "-9999px";
+    document.body.appendChild(textArea);
+    textArea.select();
+    textArea.setSelectionRange(0, 9999); // モバイル用
+
+    try {
+        const successful = document.execCommand('copy');
+        if (successful) {
+            showCopySuccess(btn);
+        } else {
+            alert('コピーに失敗しました。URL欄からコピーしてください。');
+        }
+    } catch (err) {
+        alert('お使いのブラウザではコピー機能がサポートされていません。');
+    }
+    document.body.removeChild(textArea);
+}
