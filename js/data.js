@@ -339,12 +339,12 @@ const questions = [
 ]
 
 
-// data.js
+
 const typeData = {
     "LCOE": {
         name: "不屈の統治者",
         catchphrase: "計画通りに組織を成功へ導く、王道のリーダー。",
-        image: "images/lcoe.png",
+        image: "assets/images/lcoe.png",
         strengths: ["高い完遂能力", "模範的な責任感", "数値目標への強さ"],
         weaknesses: ["変化への抵抗", "他者への厳しさ", "形式への固執"],
         workStyle: "5年、10年先のロードマップを描き、ルールを整備しながら着実に組織を拡大させる。",
@@ -353,7 +353,7 @@ const typeData = {
     "LCOI": {
         name: "信念の設計者",
         catchphrase: "自分の理想を実現するために、着実に仕組みを作る。",
-        image: "images/fshi.png",
+        image: "assets/images/lcoi.png",
         strengths: ["独自のビジョン", "一貫した哲学", "自律的な推進力"],
         weaknesses: ["周囲の無理解", "融通の利かなさ", "孤立のしやすさ"],
         workStyle: "自分の「理想のプロダクト」や「理想のチーム」を形にするため、一歩ずつこだわり抜いて構築する",
@@ -362,7 +362,7 @@ const typeData = {
     "LCHE": {
         name: "慈愛の指導者",
         catchphrase: "内面から支える、誠実な職人力",
-        image: "images/fshi.png",
+        image: "assets/images/lche.png",
         strengths: ["心理的安全性の構築", "調和のとれた意思決定", "育成能力"],
         weaknesses: ["非効率な対話", "厳しい決断の回避", "八方美人的な振る舞い"],
         workStyle: "全員の納得感を丁寧に醸成し、誰一人取り残さないスタイルでチームの士気を最大化させる。",
@@ -371,7 +371,7 @@ const typeData = {
     "LCHI": {
         name: "共感の教育者",
         catchphrase: "内面から支える、誠実な職人力",
-        image: "images/fshi.png",
+        image: "assets/images/lchi.png",
         strengths: ["深い洞察力", "価値観の共有", "長期的な信頼関係"],
         weaknesses: ["感情に左右される判断", "組織目標の軽視", "内向的な独善"],
         workStyle: "組織の数字よりも「働く人の意味」や「教育」に重きを置き、文化的な基盤をじっくり育てる",
@@ -380,7 +380,7 @@ const typeData = {
     "LSOE": {
         name: "勝利の戦略家",
         catchphrase: "変化を楽しみ、圧倒的スピードで成果を掴み取る。",
-        image: "images/fshi.png",
+        image: "assets/images/lsoe.png",
         strengths: ["圧倒的な勝負勘", "効率の追求", "大胆なリスクテイク"],
         weaknesses: ["プロセスの軽視", "短期的な視点", "飽きっぽさ"],
         workStyle: "競合の多い市場や新規事業で、最短ルートでの勝利（No.1）を目指して周囲を猛烈に牽引する。",
@@ -389,7 +389,7 @@ const typeData = {
     "LSOI": {
         name: "独創の開拓者",
         catchphrase: "既存の枠に囚われず、自らの手で道を切り拓く。",
-        image: "images/fshi.png",
+        image: "assets/images/lsoi.png",
         strengths: ["ゼロイチの創造力", "高い専門性", "現状打破のエネルギー"],
         weaknesses: ["協力者への配慮不足", "ルーチンの拒絶", "過度な自信"],
         workStyle: "誰もやったことがない技術領域や未踏の市場に、自らの技術と感性を武器に切り込んでいく。",
@@ -398,7 +398,7 @@ const typeData = {
     "LSHE": {
         name: "熱狂の演出家",
         catchphrase: "周囲を巻き込み、盛り上げながらゴールへ突き進む。",
-        image: "images/fshi.png",
+        image: "assets/images/lshe.png",
         strengths: ["高いカリスマ性", "周囲の巻き込み力", "ポジティブな影響力"],
         weaknesses: ["根拠の薄さ", "詳細な管理の欠如", "注目への過度な依存"],
         workStyle: "チームの「祭りの中心」として熱狂を生み出し、メンバーをワクワクさせながら一気にゴールへ導く。",
@@ -407,7 +407,7 @@ const typeData = {
     "LSHI": {
         name: "救世の変革者",
         catchphrase: "現場の危機に現れ、熱い意志で停滞を打破する",
-        image: "images/fshi.png",
+        image: "assets/images/lshi.png",
         strengths: ["逆境での強さ", "純粋な正義感", "直感的な問題解決"],
         weaknesses: ["組織秩序の破壊", "計画性の欠如", "周囲を振り回す衝動性"],
         workStyle: "停滞した現場やトラブルの渦中に飛び込み、熱い言葉と行動で「当たり前」をぶち壊して再生させる。",
@@ -416,7 +416,7 @@ const typeData = {
     "FCOE": {
         name: "鉄壁の守護者",
         catchphrase: "社会的な信頼を背負い、堅実にインフラを守り抜く。",
-        image: "images/fshi.png",
+        image: "assets/images/fcoe.png",
         strengths: ["抜群の安定感", "精度の高い実務", "対外的な信頼性"],
         weaknesses: ["保守的すぎる思考", "前例主義", "自己主張の弱さ"],
         workStyle: "社会的なインフラや基盤を、決められた手順と高い技術で一寸の狂いもなく維持し続ける。",
@@ -425,7 +425,7 @@ const typeData = {
     "FCOI": {
         name: "深淵の探求者",
         catchphrase: "誰にも邪魔されず、技術や知識の深みを追求する。",
-        image: "images/fshi.png",
+        image: "assets/images/fcoi.png",
         strengths: ["圧倒的な専門知識", "高い集中力", "誠実な仕事ぶり"],
         weaknesses: ["コミュニケーション不足", "視野の狭窄", "完璧主義による遅延"],
         workStyle: "自分の担当領域において、世界で誰よりも詳しい「職人」を目指し、静かな環境で質を極め続ける。",
@@ -434,7 +434,7 @@ const typeData = {
     "FCHE": {
         name: "献身の調停者",
         catchphrase: "潤滑油のように周囲を支え、組織を円滑に回す。",
-        image: "images/fshi.png",
+        image: "assets/images/fche.png",
         strengths: ["優れた調整能力", "周囲への配慮", "円滑なサポート"],
         weaknesses: ["自己犠牲のしすぎ", "板挟みでの疲弊", "優柔不断"],
         workStyle: "組織の「潤滑油」として各所の意見を調整し、全員が気持ちよく働ける環境を影から支え続ける。",
@@ -443,7 +443,7 @@ const typeData = {
     "FCHI": {
         name: "至高の職人",
         catchphrase: "自分の納得感を大切に、丁寧な手仕事で貢献する。",
-        image: "images/fshi.png",
+        image: "assets/images/fchi.png",
         strengths: ["丁寧な仕事", "独自の美学", "嘘のない誠実さ"],
         weaknesses: ["採算の度外視", "流行への無関心", "指示への強い反発"],
         workStyle: "自分の価値観に合う仕事に対し、時間や手間を惜しまず「納得のいく最高の一品」を追求し続ける。",
@@ -453,7 +453,7 @@ const typeData = {
     "FSOE": {
         name: "俊敏な請負人",
         catchphrase: "求められた課題に対し、最短ルートで解決策を出す。",
-        image: "images/fshi.png",
+        image: "assets/images/fsoe.png",
         strengths: ["効率的な問題解決", "柔軟な適応力", "実利的な貢献"],
         weaknesses: ["本質的な改善の軽視", "安請け合い", "器用貧乏"],
         workStyle: "次々と発生する課題に対し、持てるスキルを総動員して「最短・最速」で片付けていく。",
@@ -462,7 +462,7 @@ const typeData = {
     "FSOI": {
         name: "技巧の解決師",
         catchphrase: "独自の感性と技術で、難解なトラブルを鮮やかに解く。",
-        image: "images/fshi.png",
+        image: "assets/images/fsoi.png",
         strengths: ["直感的な閃き", "難題への挑戦心", "独自の技術アプローチ"],
         weaknesses: ["変化への抵抗", "説明の不足", "ルーチンへの不誠実"],
         workStyle: "誰にも解けない難解なバグやトラブルに遭遇した際、鮮やかなハック（工夫）で周囲を驚かせる。",
@@ -471,7 +471,7 @@ const typeData = {
     "FSHE": {
         name: "共感の表現者",
         catchphrase: "相手の想いを汲み取り、形にすることに喜びを感じる。",
-        image: "images/fshi.png",
+        image: "assets/images/fshe.png",
         strengths: ["ユーザーへの深い共感", "柔軟な発想", "親しみやすさ"],
         weaknesses: ["論理性の欠如", "周囲の目への敏感さ", "一貫性のなさ"],
         workStyle: "相手が「何を求めているか」を即座に察知し、デザインや気遣いを通じて、期待以上の満足感を提供する。",
@@ -480,7 +480,7 @@ const typeData = {
     "FSHI": {
         name: "内なる開花者",
         catchphrase: "自分の価値観を大切にしながら、そっと誰かを支える",
-        image: "images/fshi.png",
+        image: "assets/images/fshi.png",
         strengths: ["繊細な感性", "独自の貢献", "嘘のない支援"],
         weaknesses: ["極端な内向性", "ストレス耐性の低さ", "自己評価の低さ"],
         workStyle: "大人数の中では静かだが、信頼するパートナーの隣で、自分の感性を生かした細やかなサポートを行う。",

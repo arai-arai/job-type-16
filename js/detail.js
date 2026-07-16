@@ -29,10 +29,11 @@ if (data) {
     document.getElementById('type-id').textContent = typeId;
     document.getElementById('type-name').textContent = data.name;
     document.getElementById('type-catchphrase').textContent = data.catchphrase;
-    //document.getElementById('type-image').src = data.image;
+    document.getElementById('type-image').src = data.image;
     document.getElementById('type-workstyle').textContent = data.workStyle;
     
 
+    
 
     //長所
     const strengthList = document.getElementById('type-strengths');
@@ -50,6 +51,7 @@ if (data) {
         weaknessList.appendChild(li);
     });
 
+    //適職
     const suitablejobList = document.getElementById('type-suitablejob');
     data.suitableJob.forEach(j => {
         const li = document.createElement('li');
@@ -78,6 +80,10 @@ function renderChart() {
         indexAxis: 'y',
         responsive: true,
         maintainAspectRatio: false,
+
+        resizeDelay: 0,            
+        devicePixelRatio: window.devicePixelRatio || 1,
+        
         scales: {
             x: { stacked: true, min: 0, max: 100, display: false },
             y: { stacked: true, display: false }
@@ -187,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 現在のページのURL
     const shareUrl = window.location.href;
 
-    // 1. X (Twitter) シェア設定
+    // X (Twitter) シェア設定
     if (shareXBtn) {
         shareXBtn.addEventListener('click', (e) => {
             e.preventDefault();
@@ -196,7 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. LINE シェア設定
+    //  LINE シェア設定
     if (shareLineBtn) {
         shareLineBtn.addEventListener('click', (e) => {
             e.preventDefault();
@@ -205,12 +211,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 3. リンクコピー機能
+    // リンクコピー機能
     if (copyLinkBtn) {
         copyLinkBtn.addEventListener('click', (e) => {
             e.preventDefault();
 
-            // クリップボードAPIが使える場合（通常のモダンブラウザ）
+            // クリップボードAPIが使える場合
             if (navigator.clipboard && navigator.clipboard.writeText) {
                 navigator.clipboard.writeText(shareUrl)
                     .then(() => showCopySuccess(copyLinkBtn))
@@ -219,19 +225,19 @@ document.addEventListener('DOMContentLoaded', () => {
                         fallbackCopyText(shareUrl, copyLinkBtn);
                     });
             } else {
-                // クリップボードAPIが使えない環境（LINE内ブラウザやhttp環境など）
+                // クリップボードAPIが使えない環境
                 fallbackCopyText(shareUrl, copyLinkBtn);
             }
         });
     }
 });
 
-// コピー成功時のボタンUI変更演出
+// コピー成功時のボタン演出
 function showCopySuccess(btn) {
     const originalText = btn.textContent;
     btn.textContent = "URLをコピーしました！";
     const originalBg = btn.style.backgroundColor;
-    btn.style.backgroundColor = "#28a745"; // 一時的に緑色に
+    btn.style.backgroundColor = "#28a745";
     
     setTimeout(() => {
         btn.textContent = originalText;
@@ -248,7 +254,7 @@ function fallbackCopyText(text, btn) {
     textArea.style.top = "-9999px";
     document.body.appendChild(textArea);
     textArea.select();
-    textArea.setSelectionRange(0, 9999); // モバイル用
+    textArea.setSelectionRange(0, 9999);
 
     try {
         const successful = document.execCommand('copy');

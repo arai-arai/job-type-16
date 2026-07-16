@@ -1,8 +1,7 @@
-// 基本設定とデータ管理
+
 const urlParams = new URLSearchParams(window.location.search)
 const mode = urlParams.get('mode');
-const questionsPerPage = 10;
-let currentStep = 0;
+
 
 // 各指標の累計スコア
 let totalScores = { 
@@ -33,13 +32,14 @@ const questionOrder = (mode === 'simple')
             16, 46, 3, 2, 20, 32, ];
     
 
-    
 //並べ替え
 const sortedQuestions = questionOrder.map(id => {
     return questions.find(q => q.id === id);
 });
 
 
+const questionsPerPage = 10;
+let currentStep = 0;
 //ページ（10問セット）を表示する関数
 function showPage() {
     //画面の書き換え
@@ -140,7 +140,7 @@ nextBtn.addEventListener('click', () => {
             if (!firstUnansweredGroup) {
                 firstUnansweredGroup = group;
             }
-            // 未回答のグループを強調（任意）
+            // 未回答のグループを強調
             group.style.background = "rgba(255, 241, 118, 0.2)"; 
             group.style.borderRadius = "10px";
         } else {

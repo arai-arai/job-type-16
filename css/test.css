@@ -75,7 +75,7 @@ progress::-moz-progress-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 10px; /* ボタン同士の間隔 */
+  gap: 10px;
 }
 
 .btn {
@@ -135,7 +135,7 @@ progress::-moz-progress-bar {
     }
 
     .button-group {
-        gap: 8px; /* ボタン同士の間隔 */
+        gap: 8px;
         justify-content: space-around;
     }
 

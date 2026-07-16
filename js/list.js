@@ -44,7 +44,7 @@ allTypes.forEach(type => {
     const card = document.createElement('div');
     card.className = 'type-card';
     
-    // キャッチコピーを取得（もし未定義ならデフォルト値を出す）
+    // キャッチコピーを取得
     const nickname = typeNames[type] || "分析中のジョブタイプ";
     
     card.innerHTML = `
