@@ -157,12 +157,14 @@ function renderChart() {
                         backgroundColor: '#00BCD4',
                         borderSkipped: false,
                         borderRadius: leftRadius,
+                        barThickness: 20,
                     },
                     {
                         data: [pctRight],
                         backgroundColor: '#FFC107',
                         borderSkipped: false,
                         borderRadius: rightRadius,
+                        barThickness: 20,
                     }
                 ]
             },
